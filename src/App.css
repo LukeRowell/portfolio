@@ -1,33 +1,214 @@
-.App {
-  text-align: center;
+#root {
+  height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/*
+html {
+  background: url("./img/bg_4.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 275px 50px 200px 100px;
+  height: 100%;
+}
+
+.menu > div {
+  justify-self: center;
+}
+
+.profilePic {
+  grid-row: 1;
+  grid-column: 1 / -1;
+}
+
+.profilePic > img {
+  border: 3px solid black;
+  border-radius: 50%;
+  height: 280px;
+  width: 280px;
+  margin-top: 5%;
+  margin-left: 1%;
+}
+
+.profilePic > p {
+  font-size: 2em;
+}
+
+.name {
+  grid-row: 2;
+  margin-top: 5%;
+}
+
+.bio {
+  grid-row: 3;
+  width: 300px;
+  margin-top: 5%;
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  width: 900px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.projectList > div {
+  margin-left: 5%;
+}
+
+.projectEntry {
+  display: grid;
+  grid-template-columns: 3fr .25fr 3fr 1fr .25fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "i f d b";
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgb(223, 222, 222), 
+              0 6px 6px #adadad;
+  height: 200px;
+  width: 800px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  transition: all 200ms;
+}
+
+.projectEntry:hover {
+  transform: translate(0, -0.5em);
+}
+
+.picture {
+  grid-area: i;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.filler {
+  grid-area: f;
+}
+
+.picture > img {
+  border-radius: 5px;
+  width: 100%;
+  height: 200px;
+}
+
+.description {
+  grid-area: d;
+  padding-right: 5%;
+  margin-top: 3%;
+}
+
+a {
+  line-height: 50px;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 1.75em;
   color: white;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover {
+  transform: scale(.95);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-self: center;
 }
+
+.liveButton {
+  background-color: rgb(223, 0, 0);
+  border-color: rgb(223, 0, 0);
+}
+
+.liveDisabledButton {
+  background-color: rgb(150, 150, 150);
+  border-color: rgb(150, 150, 150);
+}
+
+.demoButton {
+  background-color: rgb(0, 0, 223);
+  border-color: rgb(0, 0, 223);
+}
+
+.codeButton {
+  background-color: rgb(0, 223, 0);
+  border-color: rgb(0, 223, 0);
+  margin-top: 5%;
+}
+
+
+/*
+.container > *:nth-child(1n) {
+  background-color: yellow;
+}
+
+.container > *:nth-child(2n) {
+  background-color: purple;
+}
+
+
+.menu > div {
+  border: 1px solid black;
+}
+
+.menu > div:nth-child(1n) {
+  background-color: red;	
+}
+
+.menu > div:nth-child(2n) {
+  background-color: orange;
+}
+
+.menu > div:nth-child(3n) {
+  background-color: green;
+}
+
+
+.projectList > div:nth-child(1n) {
+  background-color: #96ceb4;	
+}
+
+.projectList > div:nth-child(3n) {
+  background-color: #88d8b0;
+}
+
+.projectList > div:nth-child(2n) {
+  background-color: #ff6f69;
+}
+*/
