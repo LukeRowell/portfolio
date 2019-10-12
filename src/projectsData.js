@@ -2,7 +2,7 @@ const projectsData = [
     {
         id: 1,
         name: "Pokébase",
-        imgName: 'pokebase_3.PNG',
+        imgName: 'pokebase_4.PNG',
         description: "Pokébase is a simple and practical query system for finding and sorting all Pokémon. Find Pokémon with any given type combination, from any given generation; and sort them by any stat value you desire.",
         liveLink: "https://pokebase-app.herokuapp.com/",
         codeLink: "https://github.com/LukeRowell/PokeBase",
