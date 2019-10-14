@@ -9,14 +9,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      color: [Math.random()*255, Math.random()*255, Math.random()*255]
     };
-    this.randomColor = this.randomColor.bind(this);
-  }
-
-  randomColor(){
-    this.setState({color:[Math.random()*255, Math.random()*255, Math.random()*255]}
-    )
   }
 
   render() {
@@ -24,7 +17,7 @@ class App extends Component {
       <div className="container">
         <Sidebar />
         <ProjectList />
-        <P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
+        <P5Wrapper sketch={sketch}></P5Wrapper>
       </div>
     );
   }

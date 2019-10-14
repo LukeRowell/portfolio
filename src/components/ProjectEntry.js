@@ -17,8 +17,8 @@ function ProjectEntry(props) {
             </div>
             <div className="filler"></div>
             <div className="description">
-                <p>
                     <h3>{props.name}</h3>
+                <p>
                     {props.description}
                 </p>
             </div>

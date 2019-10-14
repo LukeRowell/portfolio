@@ -2,16 +2,6 @@
   height: 100%;
 }
 
-/*
-html {
-  background: url("./img/bg_4.png") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-*/
-
 html, body {
   box-sizing: border-box;
   height: 100%;
@@ -35,7 +25,7 @@ html, body {
 .menu {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 275px 50px 200px 100px;
+  grid-template-rows: 275px 50px 100px 250px 100px 50px;
   height: 100%;
 }
 
@@ -57,19 +47,69 @@ html, body {
   margin-left: 1%;
 }
 
-.profilePic > p {
-  font-size: 2em;
-}
-
 .name {
   grid-row: 2;
   margin-top: 5%;
+  margin-left: 1%;
 }
 
 .bio {
   grid-row: 3;
-  width: 300px;
   margin-top: 5%;
+  margin-left: 1%;
+  text-align: center;
+}
+
+.technologies {
+  justify-self: center;
+  text-align: center;
+  width: 250px;
+  font-size: 1.2em;
+}
+
+.links {
+  display: grid;
+  grid-template-rows: 1fr 25px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#github {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#linkedin {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.contact {
+  grid-row: 3;
+  grid-column: 1 / 4;
+  background-color: white;
+  border: 2px solid #4d4dff;
+  border-radius: 5px;
+  transition: all 200ms;
+}
+
+#contactLink {  
+  line-height: 50px;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 1.75em;
+  color: #4d4dff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#contactImg {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left: 10px;
 }
 
 .projectList {
@@ -105,6 +145,10 @@ html, body {
   transform: translate(0, -0.5em);
 }
 
+.contact:hover {
+  transform: scale(1.1);
+}
+
 .picture {
   grid-area: i;
   justify-content: center;
@@ -126,7 +170,7 @@ html, body {
   margin-top: 3%;
 }
 
-a {
+.buttons > a {
   line-height: 50px;
   height: 50px;
   width: 100px;
@@ -170,6 +214,145 @@ a:hover {
   background-color: rgb(0, 223, 0);
   border-color: rgb(0, 223, 0);
   margin-top: 5%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  border: 1px solid black;
+  width: 800px;
+  height: 600px;
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  background-color: #c0f7b5;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.emailForm {
+  grid-row: 2 / 12;
+  grid-column: 1 / 12;
+}
+
+form {
+  display: grid;
+  grid-template-rows: repeat(12, 50px);
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 5px;
+}
+
+label {
+  font-size: 1.4em;
+  margin-left: 30%;
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+}
+
+#nameField, #emailField {
+  width: 200px;
+  height: 20px;
+}
+
+#messageField {
+  height: 200px;
+}
+
+.modal-content > h1 {
+  grid-row: 1;
+  grid-column: 1 / 11;
+  font-size: 3em;
+  margin-left: 5%;
+  border-bottom: 1px solid black;
+}
+
+.close {
+  grid-row: 1;
+  grid-column: 12;
+  color: #aaaaaa;
+  justify-self: center;
+  align-self: top;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalControls {
+  grid-row: 2 / 13;
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px 200px 40px;
+}
+
+.modalControls > h4 {
+  justify-self: center;
+  align-self: center;
+}
+
+.filters {
+  display: grid;
+  grid-template-rows: 0.35fr 0.5fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filters > h4,h2 {
+  justify-self: center;
+}
+
+.filters > select {
+  justify-self: center;
+  width: 125px;
+  height: 20px;
+}
+
+.startSearch {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.startSearch > h4 {
+  justify-self: center;
+}
+
+#goButton {
+  height: 100px;
+  width: 150px;
+  justify-self: center;
+  align-self: center;
+  background-color: green;
+  font-size: 2em;
 }
 
 
