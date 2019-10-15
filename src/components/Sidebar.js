@@ -133,12 +133,7 @@ class Sidebar extends React.Component {
                                     </label>
                                     <textarea id="messageField" />
                                 </form>    
-                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                <form action="?" method="POST">
-                                    <div class="g-recaptcha" data-sitekey={site_key}></div>
-                                    <br/>
-                                    <input type="submit" value="Submit" />
-                                </form>
+                                <div className="g-recaptcha" data-sitekey={site_key}></div>
                             </div>
                         </div>
                     </div>
