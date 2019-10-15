@@ -5,6 +5,7 @@ import linkedinImage from '../img/linkedin_icon2.PNG';
 import speechbubbleImage from '../img/speechbubble4.png';
 
 require('dotenv').config();
+let Recaptcha = require('react-recaptcha');
 
 class Sidebar extends React.Component {
     constructor() {
@@ -47,6 +48,7 @@ class Sidebar extends React.Component {
           error = 'Invalid email address';
         }
 
+        console.log('callback');
         return error;
     }
 
@@ -132,8 +134,12 @@ class Sidebar extends React.Component {
                                         Message:
                                     </label>
                                     <textarea id="messageField" />
-                                </form>    
-                                <div className="g-recaptcha" data-sitekey={site_key}></div>
+                                </form>
+                                <Recaptcha
+                                    sitekey={process.env.SITE_KEY}
+                                    render="explicit"
+                                    onloadCallback={this.validateEmail}
+                                />
                             </div>
                         </div>
                     </div>
