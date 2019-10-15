@@ -4,6 +4,8 @@ import githubImage from '../img/github_icon.png';
 import linkedinImage from '../img/linkedin_icon2.PNG';
 import speechbubbleImage from '../img/speechbubble4.png';
 
+require('dotenv').config();
+
 class Sidebar extends React.Component {
     constructor() {
         super();
@@ -54,6 +56,8 @@ class Sidebar extends React.Component {
     }
     
     render() {
+        const site_key = process.env.SITE_KEY;
+
         return (
             <div className="menu">
                 <div className="profilePic">
@@ -128,6 +132,12 @@ class Sidebar extends React.Component {
                                         Message:
                                     </label>
                                     <textarea id="messageField" />
+                                </form>    
+                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                <form action="?" method="POST">
+                                    <div class="g-recaptcha" data-sitekey={site_key}></div>
+                                    <br/>
+                                    <input type="submit" value="Submit" />
                                 </form>
                             </div>
                         </div>
