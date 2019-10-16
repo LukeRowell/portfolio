@@ -13,7 +13,8 @@ class Sidebar extends React.Component {
         this.state = {
             display: false,
             name: "",
-            email: ""
+            email: "",
+            message: ""
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -36,7 +37,6 @@ class Sidebar extends React.Component {
     handleChange(event) {
         const { name, value } = event.target;
         this.setState({ [name]: value });
-        this.validateEmail();
     }
 
     validateEmail() {
@@ -48,18 +48,19 @@ class Sidebar extends React.Component {
           error = 'Invalid email address';
         }
 
-        console.log('callback');
         return error;
     }
 
     handleSubmit(event) {
+        let modal = document.getElementById("myModal");
+
+        modal.style.display = 'none';
+        this.setState({display: false});
+
         event.preventDefault();
-        console.log('form submitted');
     }
     
     render() {
-        const site_key = process.env.SITE_KEY;
-
         return (
             <div className="menu">
                 <div className="profilePic">
@@ -133,13 +134,29 @@ class Sidebar extends React.Component {
                                     <label>
                                         Message:
                                     </label>
-                                    <textarea id="messageField" />
+                                    <textarea id="messageField" 
+                                        name="message"
+                                        onChange={this.handleChange}/>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <label htmlFor="verification">
+                                        Verification:
+                                    </label>
+                                    <div id="recaptcha">
+                                        <Recaptcha
+                                            sitekey="6Lesvb0UAAAAABWdLkMWZgGHMR0hVVYawNZYzUnV"
+                                        />
+                                    </div>
+                                    <input id="submitButton"
+                                        type="submit" 
+                                        value="Send"
+                                        onSubmit={this.handleSubmit} 
+                                    />
                                 </form>
-                                <Recaptcha
-                                    sitekey={process.env.SITE_KEY}
-                                    render="explicit"
-                                    onloadCallback={this.validateEmail}
-                                />
                             </div>
                         </div>
                     </div>
