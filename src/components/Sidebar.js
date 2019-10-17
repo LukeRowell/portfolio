@@ -75,6 +75,8 @@ class Sidebar extends React.Component {
     }
 
     async handleSubmit(event) {
+        event.preventDefault();
+
         let modal = document.getElementById("myModal");
         let nameError = document.getElementById("nameError");
         let emailRequiredError = document.getElementById("emailError");
@@ -98,8 +100,6 @@ class Sidebar extends React.Component {
             const data = await this.getData(api_url);
             console.log(data);
         }
-
-        event.preventDefault();
     }
     
     recaptchaCallback(response) {
