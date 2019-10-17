@@ -84,7 +84,7 @@ class Sidebar extends React.Component {
         let error = this.validateForm();
         const api_url = `https://lr-app-server.herokuapp.com/portfolio/sendmail/${this.state.responseToken}`;
 
-        if (error) {
+        if (error.name || error.emailRequired || error.emailInvalid || error.message || error.verification) {
             error.name ? nameError.style.display = 'block' : nameError.style.display = 'none';
             error.emailRequired ? emailRequiredError.style.display = 'block' : emailRequiredError.style.display = 'none';
             error.emailInvalid ? emailInvalidError.style.display = 'block' : emailInvalidError.style.display = 'none';
