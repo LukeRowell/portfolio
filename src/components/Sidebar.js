@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.validateEmail = this.validateEmail.bind(this);
+        this.validateForm = this.validateForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -39,13 +39,17 @@ class Sidebar extends React.Component {
         this.setState({ [name]: value });
     }
 
-    validateEmail() {
+    validateForm() {
         let error;
 
-        if (!this.state.email) {
-          error = 'Required';
+        if (!this.state.name) {
+          error = 'Name required';
+        } else if (!this.state.email) {
+          error = 'Email required';
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
           error = 'Invalid email address';
+        } else if (!this.state.message) {
+            error = 'Message required';
         }
 
         return error;
@@ -53,9 +57,15 @@ class Sidebar extends React.Component {
 
     handleSubmit(event) {
         let modal = document.getElementById("myModal");
+        let error = this.validateForm();
 
-        modal.style.display = 'none';
-        this.setState({display: false});
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Form completed');
+            modal.style.display = 'none';
+            this.setState({display: false});    
+        }
 
         event.preventDefault();
     }
@@ -136,14 +146,18 @@ class Sidebar extends React.Component {
                                     </label>
                                     <textarea id="messageField" 
                                         name="message"
-                                        onChange={this.handleChange}/>
+                                        onChange={this.handleChange}
+                                    />
+                                    <h3 id="nameError">Name required</h3>
+                                    <h3 id="emailError">Email required</h3>
+                                    <h3 id="messageError">Message required</h3>
                                     <div></div>
                                     <div></div>
                                     <div></div>
                                     <div></div>
                                     <div></div>
                                     <div></div>
-                                    <label htmlFor="verification">
+                                    <label>
                                         Verification:
                                     </label>
                                     <div id="recaptcha">

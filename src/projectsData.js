@@ -38,6 +38,16 @@ const projectsData = [
         codeLink: "https://github.com/LukeRowell/WIZ-8",
         isDemo: false,
         isLive: true
+    },
+    {
+        id: 4,
+        name: "WIZ-8",
+        imgName: 'wiz-8.PNG',
+        description: "WIZ-8 is a CHIP-8 emulator written in C++ using SFML. CHIP-8 is an interpreted programming language developed by Joseph Weisbecker. CHIP-8 is often recommended to those seeking to write emulators as a first exercise, before moving on to more complicated systems.",
+        liveLink: "https://github.com/LukeRowell/WIZ-8/releases",
+        codeLink: "https://github.com/LukeRowell/WIZ-8",
+        isDemo: false,
+        isLive: true
     }
 ];
 

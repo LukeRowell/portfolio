@@ -27,7 +27,7 @@ html, body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 275px 50px 100px 250px 100px 50px;
-  height: 100%;
+  height: 75%;
 }
 
 .menu > div {
@@ -116,7 +116,7 @@ html, body {
 .projectList {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   width: 900px;
   overflow: scroll;
   overflow-x: hidden;
@@ -265,10 +265,31 @@ form {
   grid-gap: 5px;
 }
 
+form > h3 {
+  color: red;
+  position: absolute;
+}
+
 label {
   font-size: 1.2em;
   margin-left: 30%;
   text-align: left;
+}
+
+#nameError {
+  display: none;
+  top: 17.5%;
+  right: 38%;
+}
+
+#emailError {
+  display: none;
+  top: 26.5%;
+  right: 38%;
+}
+
+#messageError {
+  display: none;
 }
 
 textarea {
