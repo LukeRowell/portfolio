@@ -20,6 +20,7 @@ class Sidebar extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.recaptchaCallback = this.recaptchaCallback.bind(this);
     }
 
     handleClick(event) {
@@ -49,7 +50,7 @@ class Sidebar extends React.Component {
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
           error = 'Invalid email address';
         } else if (!this.state.message) {
-            error = 'Message required';
+          error = 'Message required';
         }
 
         return error;
@@ -70,6 +71,10 @@ class Sidebar extends React.Component {
         event.preventDefault();
     }
     
+    recaptchaCallback(event) {
+        console.log('Checked');
+    }
+
     render() {
         return (
             <div className="menu">
@@ -162,6 +167,7 @@ class Sidebar extends React.Component {
                                     </label>
                                     <div id="recaptcha">
                                         <Recaptcha
+                                            onloadCallback={this.recaptchaCallback}
                                             sitekey="6Lesvb0UAAAAABWdLkMWZgGHMR0hVVYawNZYzUnV"
                                         />
                                     </div>
