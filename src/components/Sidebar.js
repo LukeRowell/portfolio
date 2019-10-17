@@ -96,6 +96,7 @@ class Sidebar extends React.Component {
             modal.style.display = 'none';
             this.setState({display: false});
             const data = await this.getData(api_url);
+            console.log(data);
         }
 
         event.preventDefault();
