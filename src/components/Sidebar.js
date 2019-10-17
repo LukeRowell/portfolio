@@ -4,8 +4,8 @@ import githubImage from '../img/github_icon.png';
 import linkedinImage from '../img/linkedin_icon2.PNG';
 import speechbubbleImage from '../img/speechbubble4.png';
 
-require('dotenv').config();
-let Recaptcha = require('react-recaptcha');
+const Recaptcha = require('react-recaptcha');
+const fetch = require('node-fetch');
 
 class Sidebar extends React.Component {
     constructor() {
@@ -15,11 +15,13 @@ class Sidebar extends React.Component {
             name: "",
             email: "",
             message: "",
-            recaptchaChecked: false
+            recaptchaChecked: false,
+            responseToken: ""
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.validateForm = this.validateForm.bind(this);
+        this.getData = this.getData.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.recaptchaCallback = this.recaptchaCallback.bind(this);
     }
@@ -65,7 +67,14 @@ class Sidebar extends React.Component {
         return error;
     }
 
-    handleSubmit(event) {
+    async getData(api_url) {
+        const db_response = await fetch(api_url);
+        const db_json = await db_response.json();
+    
+        return db_json;
+    }
+
+    async handleSubmit(event) {
         let modal = document.getElementById("myModal");
         let nameError = document.getElementById("nameError");
         let emailRequiredError = document.getElementById("emailError");
@@ -73,6 +82,7 @@ class Sidebar extends React.Component {
         let messageError = document.getElementById("messageError");
         let verificationError = document.getElementById("verifyError");
         let error = this.validateForm();
+        const api_url = `https://lr-app-server.herokuapp.com/portfolio/sendmail/${this.state.responseToken}`;
 
         if (error) {
             error.name ? nameError.style.display = 'block' : nameError.style.display = 'none';
@@ -84,15 +94,16 @@ class Sidebar extends React.Component {
         } else {
             console.log('Form completed');
             modal.style.display = 'none';
-            this.setState({display: false});    
+            this.setState({display: false});
+            const data = await this.getData(api_url);
         }
 
         event.preventDefault();
     }
     
-    recaptchaCallback(event) {
+    recaptchaCallback(response) {
         console.log('Checked');
-        console.log(event);
+        this.setState({responseToken: response});
         this.setState({recaptchaChecked: true});
     }
 
