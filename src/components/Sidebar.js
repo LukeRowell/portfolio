@@ -167,7 +167,7 @@ class Sidebar extends React.Component {
                                     </label>
                                     <div id="recaptcha">
                                         <Recaptcha
-                                            onloadCallback={this.recaptchaCallback}
+                                            verifyCallback={this.recaptchaCallback}
                                             sitekey="6Lesvb0UAAAAABWdLkMWZgGHMR0hVVYawNZYzUnV"
                                         />
                                     </div>
