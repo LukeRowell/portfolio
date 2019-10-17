@@ -4,6 +4,8 @@ import 'p5/lib/addons/p5.dom';
 export default function sketch(p) {
   let canvas;
   let grid;
+  const width = 2500;
+  const height = 2500;
   let x;
   let y;
   let dir;
@@ -40,16 +42,16 @@ export default function sketch(p) {
       x--;
     }
   
-    if (x > p.windowWidth - 1) {
+    if (x > width - 1) {
       x = 0;
     } else if (x < 0) {
-      x = p.windowWidth - 1;
+      x = width - 1;
     }
 
-    if (y > p.windowHeight - 1) {
+    if (y > height - 1) {
       y = 0;
     } else if (y < 0) {
-      y = p.windowHeight - 1;
+      y = height - 1;
     }
   }
 
@@ -67,24 +69,24 @@ export default function sketch(p) {
   }
 
   p.setup = () => {
-    canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+    canvas = p.createCanvas(width, height);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
 
-    grid = make2DArray(Math.floor(p.windowWidth), Math.floor(p.windowHeight));
-    x = Math.floor((p.width - 1) / 2);
-    y = Math.floor((p.height - 1) / 2);
+    grid = make2DArray(width, height);
+    x = Math.floor(500);
+    y = Math.floor(500);
     dir = ANTUP;
   }
 
-  p.windowResized = () => {
+  /*p.windowResized = () => {
       p.clear();
       p.resizeCanvas(p.windowWidth, p.windowHeight);
       grid = make2DArray(Math.floor(p.windowWidth), Math.floor(p.windowHeight));
       x = Math.floor((p.windowWidth - 1) / 2);
       y = Math.floor((p.windowHeight - 1) / 2);
       dir = ANTUP;
-  }
+  }*/
 
   p.draw = () => {
     p.strokeWeight(1);
