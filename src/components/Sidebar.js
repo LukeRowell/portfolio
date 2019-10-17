@@ -97,7 +97,7 @@ class Sidebar extends React.Component {
             const data = this.state.responseToken;
             const options = {
                 mode: 'no-cors',
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
