@@ -14,7 +14,8 @@ class Sidebar extends React.Component {
             display: false,
             name: "",
             email: "",
-            message: ""
+            message: "",
+            recaptchaChecked: false
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -41,16 +42,24 @@ class Sidebar extends React.Component {
     }
 
     validateForm() {
-        let error;
+        let error = {
+            name: false,
+            emailRequired: false,
+            emailInvalid: false,
+            message: false,
+            verification: false
+        };
 
         if (!this.state.name) {
-          error = 'Name required';
-        } else if (!this.state.email) {
-          error = 'Email required';
+          error.name = true;
+        } if (!this.state.email) {
+          error.emailRequired = true;
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
-          error = 'Invalid email address';
-        } else if (!this.state.message) {
-          error = 'Message required';
+          error.emailInvalid = true;
+        } if (!this.state.message) {
+          error.message = true;
+        } if (!this.state.recaptchaChecked) {
+          error.verification = true;
         }
 
         return error;
@@ -58,9 +67,19 @@ class Sidebar extends React.Component {
 
     handleSubmit(event) {
         let modal = document.getElementById("myModal");
+        let nameError = document.getElementById("nameError");
+        let emailRequiredError = document.getElementById("emailError");
+        let emailInvalidError = document.getElementById("emailInvalidError");
+        let messageError = document.getElementById("messageError");
+        let verificationError = document.getElementById("verifyError");
         let error = this.validateForm();
 
         if (error) {
+            error.name ? nameError.style.display = 'block' : nameError.style.display = 'none';
+            error.emailRequired ? emailRequiredError.style.display = 'block' : emailRequiredError.style.display = 'none';
+            error.emailInvalid ? emailInvalidError.style.display = 'block' : emailInvalidError.style.display = 'none';
+            error.message ? messageError.style.display = 'block' : messageError.style.display = 'none';
+            error.verification ? verificationError.style.display = 'block' : verificationError.style.display = 'none';
             console.log(error);
         } else {
             console.log('Form completed');
@@ -73,6 +92,8 @@ class Sidebar extends React.Component {
     
     recaptchaCallback(event) {
         console.log('Checked');
+        console.log(event);
+        this.setState({recaptchaChecked: true});
     }
 
     render() {
@@ -155,7 +176,9 @@ class Sidebar extends React.Component {
                                     />
                                     <h3 id="nameError">Name required</h3>
                                     <h3 id="emailError">Email required</h3>
+                                    <h3 id="emailInvalidError">Email address invalid</h3>
                                     <h3 id="messageError">Message required</h3>
+                                    <h3 id="verifyError">Verification required</h3>
                                     <div></div>
                                     <div></div>
                                     <div></div>

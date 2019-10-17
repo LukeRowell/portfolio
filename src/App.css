@@ -288,8 +288,22 @@ label {
   right: 38%;
 }
 
+#emailInvalidError {
+  display: none;
+  top: 26.5%;
+  right: 30.5%;
+}
+
 #messageError {
   display: none;
+  top: 30%;
+  right: 9%;
+}
+
+#verifyError {
+  display: none;
+  bottom: 5%;
+  left: 19%;
 }
 
 textarea {
