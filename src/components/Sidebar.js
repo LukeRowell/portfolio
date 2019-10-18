@@ -94,24 +94,13 @@ class Sidebar extends React.Component {
             error.verification ? verificationError.style.display = 'block' : verificationError.style.display = 'none';
             console.log(error);
         } else {
-            const data = this.state.responseToken;
-            const options = {
-                mode: 'no-cors',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            };
-
-            const db_response = await fetch(api_url, options);
-            const db_json = await db_response.json();
+            const data = await this.getData(api_url);
 
             modal.style.display = 'none';
             this.setState({display: false});
 
             console.log('Form completed');
-            console.log(db_json);
+            console.log(data);
         }
     }
     
