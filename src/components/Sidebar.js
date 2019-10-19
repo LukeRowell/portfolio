@@ -68,12 +68,27 @@ class Sidebar extends React.Component {
     }
 
     async getData(api_url) {
-        const db_response = await fetch(api_url);
-        const db_json = await db_response.json();
+        //const db_response = await fetch(api_url);
+        //const db_json = await db_response.json();
     
-        console.log('db_response: ', db_response);
-        console.log('db_json: ', db_json);
+        //console.log('db_response: ', db_response);
+        //console.log('db_json: ', db_json);
 
+        const recaptcha_api_url = 'https://www.google.com/recaptcha/api/siteverify';
+        const options = {
+            method: 'POST',
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                secret: '6Lesvb0UAAAAADVWXt7264LCHFwfrz1YzAQUVinR',
+                response: userResponse
+            })
+          };
+      
+        const db_response = await fetch(recaptcha_api_url, options);   //send the data over to be inserted to the database
+        const db_json = await db_response.json();
         return db_json;
     }
 
