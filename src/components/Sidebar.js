@@ -69,12 +69,13 @@ class Sidebar extends React.Component {
 
     async getData(api_url) {
         const options = {
+            method: 'GET',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             }
         };
-        
+
         const db_response = await fetch(api_url, options);
         const db_json = await db_response.json();
     
