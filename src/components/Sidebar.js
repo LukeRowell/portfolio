@@ -83,7 +83,7 @@ class Sidebar extends React.Component {
             },
             body: JSON.stringify({
                 secret: '6Lesvb0UAAAAADVWXt7264LCHFwfrz1YzAQUVinR',
-                response: userResponse
+                response: this.state.responseToken
             })
           };
       
