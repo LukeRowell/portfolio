@@ -80,7 +80,6 @@ class Sidebar extends React.Component {
         const db_json = await db_response.json();
 
         console.log('db_response: ', db_response);
-        console.log('db_json: ', db_json);
 
         return db_json;
     }
