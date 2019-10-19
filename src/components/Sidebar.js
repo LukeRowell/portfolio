@@ -70,6 +70,7 @@ class Sidebar extends React.Component {
     async getData(api_url) {
         const options = {
             method: 'GET',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
