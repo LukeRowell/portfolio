@@ -68,13 +68,18 @@ class Sidebar extends React.Component {
     }
 
     async getData(api_url) {
-        const responseToken = {token: this.state.responseToken};
+        const formData = {
+            name: this.state.name,
+            email: this.state.email,
+            message: this.state.message,
+            token: this.state.responseToken
+        };
         const db_response = await fetch(api_url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(responseToken)
+            body: JSON.stringify(formData)
         });
 
         const db_json = await db_response.json();
@@ -93,7 +98,6 @@ class Sidebar extends React.Component {
         let verificationError = document.getElementById("verifyError");
         let error = this.validateForm();
         const api_url = `https://lr-app-server.herokuapp.com/portfolio`;
-        //const api_url = 'http://localhost:5000/portfolio';
 
         if (error.name || error.emailRequired || error.emailInvalid || error.message || error.verification) {
             error.name ? nameError.style.display = 'block' : nameError.style.display = 'none';
