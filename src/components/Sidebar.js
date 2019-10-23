@@ -124,6 +124,7 @@ class Sidebar extends React.Component {
     }
 
     render() {
+        //update
         return (
             <div className="menu">
                 <div className="profilePic">
@@ -218,7 +219,7 @@ class Sidebar extends React.Component {
                                     <div id="recaptcha">
                                         <Recaptcha
                                             verifyCallback={this.recaptchaCallback}
-                                            sitekey="6Le8LL8UAAAAADh3rC-OeUi6kUrY0Y2uBJgjeRF7"
+                                            sitekey="6Lesvb0UAAAAABWdLkMWZgGHMR0hVVYawNZYzUnV"
                                         />
                                     </div>
                                     <input id="submitButton"
