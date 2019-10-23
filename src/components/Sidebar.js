@@ -218,7 +218,7 @@ class Sidebar extends React.Component {
                                     <div id="recaptcha">
                                         <Recaptcha
                                             verifyCallback={this.recaptchaCallback}
-                                            sitekey="6Lesvb0UAAAAABWdLkMWZgGHMR0hVVYawNZYzUnV"
+                                            sitekey="6Le8LL8UAAAAADh3rC-OeUi6kUrY0Y2uBJgjeRF7"
                                         />
                                     </div>
                                     <input id="submitButton"
