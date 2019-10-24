@@ -12,12 +12,12 @@ class App extends Component {
     };
   }
 
+  //<P5Wrapper sketch={sketch}></P5Wrapper>
   render() {
     return (
       <div className="container">
         <Sidebar />
         <ProjectList />
-        <P5Wrapper sketch={sketch}></P5Wrapper>
       </div>
     );
   }
