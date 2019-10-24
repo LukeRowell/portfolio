@@ -26,7 +26,7 @@ html, body {
 .menu {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 275px 50px 100px 250px 100px 50px;
+  grid-template-rows: 275px 55px 55px 200px;;
   height: 75%;
 }
 
