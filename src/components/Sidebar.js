@@ -26,24 +26,21 @@ class Sidebar extends React.Component {
         this.recaptchaCallback = this.recaptchaCallback.bind(this);
     }
 
-    handleClick(event) {
+    handleClick(event) {    //On click, close the modal if necessary
         let modal = document.getElementById("myModal");
 
         if (event.target.id === "myModal" || event.target.id === "close" || event.target.id === "contactLink") {
             this.state.display ? modal.style.display = 'none' : modal.style.display = 'block';
             this.setState({display: !this.state.display});
-        } else if (event.target.id === "goButton") {
-            this.state.display ? modal.style.display = 'none' : modal.style.display = 'block';
-            this.setState({display: !this.state.display});
         }
     }
 
-    handleChange(event) {
+    handleChange(event) {   //Update state when fields are updated
         const { name, value } = event.target;
         this.setState({ [name]: value });
     }
 
-    validateForm() {
+    validateForm() {    //Validate the contact form and return any errors present
         let error = {
             name: false,
             emailRequired: false,
@@ -67,13 +64,14 @@ class Sidebar extends React.Component {
         return error;
     }
 
-    async getData(api_url) {
+    async getData(api_url) {        //Send the data over to the app server to send the email
         const formData = {
             name: this.state.name,
             email: this.state.email,
             message: this.state.message,
             token: this.state.responseToken
         };
+
         const db_response = await fetch(api_url, {
             method: 'POST',
             headers: {
@@ -83,11 +81,10 @@ class Sidebar extends React.Component {
         });
 
         const db_json = await db_response.json();
-        console.log('db_response: ', db_response);
         return db_json;
     }
 
-    async handleSubmit(event) {
+    async handleSubmit(event) {     //On form submission do error checking, and send data off if there are none
         event.preventDefault();
 
         let modal = document.getElementById("myModal");
@@ -107,24 +104,18 @@ class Sidebar extends React.Component {
             error.verification ? verificationError.style.display = 'block' : verificationError.style.display = 'none';
             console.log(error);
         } else {
-            const data = await this.getData(api_url);
-
+            await this.getData(api_url);
             modal.style.display = 'none';
             this.setState({display: false});
-
-            console.log('Form completed');
-            console.log(data);
         }
     }
     
-    recaptchaCallback(response) {
-        console.log('Checked');
+    recaptchaCallback(response) {       //Store response token in the state
         this.setState({responseToken: response});
         this.setState({recaptchaChecked: true});
     }
 
     render() {
-        //update
         return (
             <div className="menu">
                 <div className="profilePic">

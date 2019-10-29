@@ -1,3 +1,5 @@
+//Thanks to Dan Shiffman for the p5 version of Langton's Ant that this code was built off of
+
 import 'p5';
 import 'p5/lib/addons/p5.dom';
 
@@ -78,15 +80,6 @@ export default function sketch(p) {
     y = Math.floor(500);
     dir = ANTUP;
   }
-
-  /*p.windowResized = () => {
-      p.clear();
-      p.resizeCanvas(p.windowWidth, p.windowHeight);
-      grid = make2DArray(Math.floor(p.windowWidth), Math.floor(p.windowHeight));
-      x = Math.floor((p.windowWidth - 1) / 2);
-      y = Math.floor((p.windowHeight - 1) / 2);
-      dir = ANTUP;
-  }*/
 
   p.draw = () => {
     p.strokeWeight(1);

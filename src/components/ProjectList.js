@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectEntry from '../components/ProjectEntry'
 import projectsData from '../projectsData';
 
-function ProjectList() {
+function ProjectList() {        //Read in project data and map them to project entries
     const projectEntries = projectsData.map(project => 
         <ProjectEntry key={project.id} 
                     name={project.name} 
