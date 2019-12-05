@@ -131,7 +131,7 @@ class Sidebar extends React.Component {
                 <div className="technologies">
                     <h3>Proficiencies</h3>
                     <p>
-                        JavaScript &bull; React &bull; Node &bull; PostgreSQL &bull; MongoDB &bull; Heroku &bull; HTML5 &bull; CSS &bull; Git &bull; C/C++ &bull; Python &bull; SFML
+                        JavaScript &bull; React &bull; Node &bull; PostgreSQL &bull; MongoDB &bull; Heroku &bull; HTML5 &bull; CSS &bull; Git &bull; C# &bull; C/C++ &bull; Python &bull; SFML
                     </p>
                 </div>
                 <div className="links">
