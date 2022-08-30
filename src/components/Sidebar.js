@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImage from '../img/profile_pic3.PNG';
+import profileImage from '../img/profile_pic4.JPEG';
 import githubImage from '../img/github_icon.png';
 import linkedinImage from '../img/linkedin_icon2.PNG';
 import speechbubbleImage from '../img/speechbubble4.png';
@@ -131,7 +131,7 @@ class Sidebar extends React.Component {
                 <div className="technologies">
                     <h3>Proficiencies</h3>
                     <p>
-                        JavaScript &bull; React &bull; Node &bull; PostgreSQL &bull; MongoDB &bull; Heroku &bull; HTML5 &bull; CSS &bull; Git &bull; C# &bull; C/C++ &bull; Python &bull; SFML
+                        C#/.NET &bull; C/C++ &bull; JavaScript &bull; Node &bull; React &bull; SQL &bull; PostgreSQL &bull; MongoDB &bull; HTML5 &bull; CSS &bull; Python &bull; SFML &bull; Git                    
                     </p>
                 </div>
                 <div className="links">

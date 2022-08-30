@@ -6,7 +6,7 @@ import 'p5/lib/addons/p5.dom';
 export default function sketch(p) {
   let canvas;
   let grid;
-  const width = 2500;
+  const width = 3000;
   const height = 2500;
   let x;
   let y;

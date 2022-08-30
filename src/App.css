@@ -37,26 +37,26 @@ html, body {
 .profilePic {
   grid-row: 1;
   grid-column: 1 / -1;
+  margin-right: 1%;
 }
 
 .profilePic > img {
   border: 3px solid whitesmoke;
   border-radius: 50%;
-  height: 280px;
-  width: 250px;
+  height: 300px;
+  width: 400px;
   margin-top: 5%;
-  margin-left: 1%;
 }
 
 .name {
   grid-row: 2;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-left: 1%;
 }
 
 .bio {
   grid-row: 3;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-left: 1%;
   text-align: center;
 }
@@ -64,13 +64,15 @@ html, body {
 .technologies {
   justify-self: center;
   text-align: center;
+  margin-top: 10%;
   width: 250px;
   font-size: 1.2em;
 }
 
 .links {
   display: grid;
-  grid-template-rows: 1fr 25px 1fr;
+  margin-top: 15%;
+  grid-template-rows: 1fr 3fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -87,12 +89,14 @@ html, body {
 }
 
 .contact {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 1 / 4;
+  height: 50px;
   background-color: white;
   border: 2px solid #4d4dff;
   border-radius: 5px;
   transition: all 200ms;
+  margin-top: 5%;
 }
 
 #contactLink {  
