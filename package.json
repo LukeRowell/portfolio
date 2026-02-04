@@ -9,7 +9,7 @@
     "react-dom": "^16.9.0",
     "react-p5-wrapper": "^2.0.0",
     "react-recaptcha": "^2.3.10",
-    "react-scripts": "3.1.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts --max_old_space_size=4096 start",
